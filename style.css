@@ -91,3 +91,59 @@ nav a:hover, nav button:hover {
 body, .card, header {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Hamburger menu */
+nav {
+  position: relative;
+}
+
+#menu-toggle {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none; /* Pokaż tylko na małych ekranach */
+}
+
+.menu-items {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.menu-items a, .menu-items button {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-items button:hover,
+.menu-items a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 600px) {
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    background-color: var(--accent-color);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .menu-items.active {
+    display: flex;
+  }
+
+  #menu-toggle {
+    display: inline;
+  }
+}
