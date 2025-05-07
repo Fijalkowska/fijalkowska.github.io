@@ -6,21 +6,33 @@
   <title>Portfolio Faustyny – Python Projects</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <script>
+  const toggle = document.getElementById('toggle-theme');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
+</script>
 <body>
-  <header>
-    <div class="container">
-      <h1>Faustyna</h1>
-      <p>Moje projekty i nauka programowania 🐍</p>
-    </div>
-  </header>
+<header>
+  <div class="container nav">
+    <h1>Faustyna</h1>
+    <nav>
+      <a href="#about">O mnie</a>
+      <a href="#projects">Projekty</a>
+      <a href="#contact">Kontakt</a>
+      <button id="toggle-theme">🌙</button>
+    </nav>
+  </div>
+</header>
 
   <main class="container">
-    <section class="about">
+<section class="about" id="about">
       <h2>👋 O mnie</h2>
       <p>Cześć! Jestem Faustyna. Uczę się Pythona i tworzenia stron.</p>
     </section>
 
-    <section class="projects">
+<section class="projects" id="projects">
       <h2>🛠️ Moje projekty</h2>
 
       <div class="card">
@@ -43,7 +55,7 @@
     </section>
   </main>
 
-  <footer>
+<footer id="contact">
     <div class="container">
       <p>📫 Kontakt: <a href="mailto:fijalkowskaf@gmail.com">fijalkowskaf@gmail.com</a> | <a href="https://github.com/fijalkowska" target="_blank">GitHub</a></p>
       <p>&copy; 2025 Faustyna</p>
