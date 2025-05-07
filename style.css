@@ -1,8 +1,22 @@
+:root {
+  --bg-color: #f7f9fc;
+  --text-color: #333;
+  --card-color: #fff;
+  --accent-color: #3498db;
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #f2f2f2;
+  --card-color: #2a2a2a;
+  --accent-color: #4fa3f7;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f9fc;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .container {
@@ -12,7 +26,7 @@ body {
 }
 
 header {
-  background-color: #3498db;
+  background-color: var(--accent-color);
   color: white;
   padding: 40px 0;
   text-align: center;
@@ -28,13 +42,16 @@ main {
 }
 
 h2 {
-  color: #2c3e50;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 .card {
-  background-color: white;
+  background-color: var(--card-color);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -42,10 +59,7 @@ h2 {
 }
 
 .card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #3498db;
-  text-decoration: none;
+  color: var(--accent-color);
 }
 
 footer {
@@ -54,4 +68,26 @@ footer {
   background-color: #ecf0f1;
   margin-top: 40px;
   font-size: 0.9em;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a, nav button {
+  margin-left: 15px;
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+}
+
+nav a:hover, nav button:hover {
+  text-decoration: underline;
+}
+
+body, .card, header {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
