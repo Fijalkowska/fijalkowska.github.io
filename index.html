@@ -1,90 +1,53 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moje Portfolio</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 40px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    .project {
-      background-color: #fff;
-      padding: 20px;
-      margin: 20px 0;
-      border-left: 5px solid #3498db;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    pre {
-      background-color: #eee;
-      padding: 10px;
-      overflow-x: auto;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Faustyny – Python Projects</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1>Kasia</h1>
+      <p>Moje projekty i nauka programowania 🐍</p>
+    </div>
+  </header>
 
-  <h1>Cześć! 👋 Jestem Faustyna :)</h1>
-  <p>Witam na mojej stronie! Uczę się Pythona i wrzucam tu moje małe projekty. 🐍</p>
+  <main class="container">
+    <section class="about">
+      <h2>👋 O mnie</h2>
+      <p>Cześć! Jestem Faustyna. Uczę się Pythona i tworzenia stron.</p>
+    </section>
 
-  <h2>📂 Projekty</h2>
+    <section class="projects">
+      <h2>🛠️ Moje projekty</h2>
 
-  <div class="project">
-    <h3>🧮 Kalkulator</h3>
-    <p>Prosty kalkulator, który dodaje, odejmuje, mnoży i dzieli liczby.</p>
-    <pre><code>def kalkulator(a, b, dzialanie):
-    if dzialanie == "+":
-        return a + b
-    elif dzialanie == "-":
-        return a - b
-    elif dzialanie == "*":
-        return a * b
-    elif dzialanie == "/":
-        return a / b
-    else:
-        return "Nieznana operacja"
+      <div class="card">
+        <h3>🧮 Kalkulator</h3>
+        <p>Prosty kalkulator czterech działań w Pythonie.</p>
+        <a href="projekty/kalkulator.py" download>Pobierz kod</a>
+      </div>
 
-print(kalkulator(4, 2, "*"))</code></pre>
-  </div>
+      <div class="card">
+        <h3>🔢 Zgadnij liczbę</h3>
+        <p>Gra – zgadnij liczbę wylosowaną przez komputer.</p>
+        <a href="projekty/zgadnij.py" download>Pobierz kod</a>
+      </div>
 
-  <div class="project">
-    <h3>🔢 Zgadnij liczbę</h3>
-    <p>Program losuje liczbę od 1 do 10, a użytkownik próbuje zgadnąć.</p>
-    <pre><code>import random
+      <div class="card">
+        <h3>🎂 Kiedy masz urodziny?</h3>
+        <p>Policz ile dni zostało do Twoich urodzin.</p>
+        <a href="projekty/urodziny.py" download>Pobierz kod</a>
+      </div>
+    </section>
+  </main>
 
-tajna = random.randint(1, 10)
-proba = int(input("Zgadnij liczbę od 1 do 10: "))
-
-if proba == tajna:
-    print("Brawo, zgadłeś!")
-else:
-    print("Nie tym razem. To była", tajna)</code></pre>
-  </div>
-
-  <div class="project">
-    <h3>📅 Kiedy masz urodziny?</h3>
-    <p>Program pyta o Twoją datę urodzin i mówi, ile dni zostało.</p>
-    <pre><code>from datetime import datetime
-
-data = input("Podaj swoją datę urodzin (RRRR-MM-DD): ")
-urodziny = datetime.strptime(data, "%Y-%m-%d")
-dzis = datetime.now()
-roznica = urodziny.replace(year=dzis.year) - dzis
-
-if roznica.days < 0:
-    urodziny = urodziny.replace(year=dzis.year + 1)
-    roznica = urodziny - dzis
-
-print("Do Twoich urodzin zostało:", roznica.days, "dni!")</code></pre>
-  </div>
-
-  <p>Więcej projektów wkrótce! 🚀</p>
-
+  <footer>
+    <div class="container">
+      <p>📫 Kontakt: <a href="mailto:fijalkowskaf@gmail.com">fijalkowskaf@gmail.com</a> | <a href="https://github.com/fijalkowska" target="_blank">GitHub</a></p>
+      <p>&copy; 2025 Faustyna</p>
+    </div>
+  </footer>
 </body>
 </html>
