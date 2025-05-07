@@ -1,11 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moje Portfolio</title>
-  <meta charset="UTF-8" />
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .project {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Cześć! Jestem Faustyna :)</h1>
-  <p>Tu wrzucam moje projekty w Pythonie.</p>
+
+  <h1>Cześć! 👋 Jestem Faustyna :)</h1>
+  <p>Witam na mojej stronie! Uczę się Pythona i wrzucam tu moje małe projekty. 🐍</p>
+
+  <h2>📂 Projekty</h2>
+
+  <div class="project">
+    <h3>🧮 Kalkulator</h3>
+    <p>Prosty kalkulator, który dodaje, odejmuje, mnoży i dzieli liczby.</p>
+    <pre><code>def kalkulator(a, b, dzialanie):
+    if dzialanie == "+":
+        return a + b
+    elif dzialanie == "-":
+        return a - b
+    elif dzialanie == "*":
+        return a * b
+    elif dzialanie == "/":
+        return a / b
+    else:
+        return "Nieznana operacja"
+
+print(kalkulator(4, 2, "*"))</code></pre>
+  </div>
+
+  <div class="project">
+    <h3>🔢 Zgadnij liczbę</h3>
+    <p>Program losuje liczbę od 1 do 10, a użytkownik próbuje zgadnąć.</p>
+    <pre><code>import random
+
+tajna = random.randint(1, 10)
+proba = int(input("Zgadnij liczbę od 1 do 10: "))
+
+if proba == tajna:
+    print("Brawo, zgadłeś!")
+else:
+    print("Nie tym razem. To była", tajna)</code></pre>
+  </div>
+
+  <div class="project">
+    <h3>📅 Kiedy masz urodziny?</h3>
+    <p>Program pyta o Twoją datę urodzin i mówi, ile dni zostało.</p>
+    <pre><code>from datetime import datetime
+
+data = input("Podaj swoją datę urodzin (RRRR-MM-DD): ")
+urodziny = datetime.strptime(data, "%Y-%m-%d")
+dzis = datetime.now()
+roznica = urodziny.replace(year=dzis.year) - dzis
+
+if roznica.days < 0:
+    urodziny = urodziny.replace(year=dzis.year + 1)
+    roznica = urodziny - dzis
+
+print("Do Twoich urodzin zostało:", roznica.days, "dni!")</code></pre>
+  </div>
+
+  <p>Więcej projektów wkrótce! 🚀</p>
+
 </body>
 </html>
