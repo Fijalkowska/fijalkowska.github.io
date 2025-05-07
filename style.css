@@ -69,10 +69,12 @@ footer {
   margin-top: 40px;
   font-size: 0.9em;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 nav a, nav button {
@@ -93,9 +95,6 @@ body, .card, header {
 }
 
 /* Hamburger menu */
-nav {
-  position: relative;
-}
 
 #menu-toggle {
   font-size: 1.5em;
