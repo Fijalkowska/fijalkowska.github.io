@@ -24,7 +24,12 @@ def sprawdz_akcje(symbol: str):
         return "⚪ NIC NIE RÓB (MA20 ≈ MA50)"
 
 # Lista spółek
-akcje = ['AAPL', 'TSLA', 'MSFT']
+akcje = [
+    'AAPL', 'TSLA', 'MSFT', 'AMZN', 'META',
+    'GOOGL', 'NVDA', 'PLTR', 'AMD', 'INTC',
+    'KO', 'PEP', 'NKE', 'MCD', 'DIS',
+    'CRM', 'ADBE', 'CSCO', 'PYPL', 'UBER'
+]
 
 # Szablon HTML ze stylami i czcionką
 naglowek_html = """<!DOCTYPE html>
