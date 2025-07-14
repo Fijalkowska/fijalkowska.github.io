@@ -7,6 +7,9 @@ def sprawdz_akcje(symbol: str):
     dane['MA50'] = dane['Close'].rolling(window=50).mean()
     ostatni = dane.iloc[-1]
 
+    if pd.isna(ostatni['MA20']) or pd.isna(ostatni['MA50']):
+        return "⚪ ZBYT MAŁO DANYCH"
+
     if ostatni['MA20'] > ostatni['MA50']:
         return "🟢 KUP (MA20 > MA50)"
     elif ostatni['MA20'] < ostatni['MA50']:
