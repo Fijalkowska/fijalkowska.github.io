@@ -69,6 +69,7 @@ naglowek_html = """<!DOCTYPE html>
 <head>
   <meta charset=\"UTF-8\">
   <title>Rekomendacje</title>
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
   <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap\" rel=\"stylesheet\">
   <style>
     body {
@@ -76,19 +77,23 @@ naglowek_html = """<!DOCTYPE html>
       font-size: 15px;
       margin: 0;
       padding: 1rem;
+      background: #ffffff;
+      color: #111;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
       background: #1b1c1f;
       color: #eee;
-      transition: background 0.3s, color 0.3s;
     }
     h2, h1, h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: #f2f2f2;
+      color: inherit;
     }
     .opis {
       font-size: 1rem;
       margin-bottom: 2rem;
-      color: #ccc;
+      color: inherit;
       max-width: 1000px;
     }
     .rekomendacje-grid {
@@ -100,12 +105,16 @@ naglowek_html = """<!DOCTYPE html>
     .reko {
       padding: 1rem;
       border-radius: 12px;
-      background: #2c2d33;
+      background: #f0f0f0;
       text-align: center;
       font-weight: 500;
       border-left: 6px solid #888;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: background 0.3s, color 0.3s;
+    }
+    body.dark .reko {
+      background: #2c2d33;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     .kupuj { border-left-color: #2ecc71; }
     .sprzedaj { border-left-color: #e74c3c; }
@@ -117,29 +126,21 @@ naglowek_html = """<!DOCTYPE html>
     .cena {
       font-size: 0.85rem;
       margin-top: 0.4rem;
-      color: #aaa;
+      color: inherit;
     }
     .nazwa {
       font-size: 0.9rem;
       margin-top: 0.2rem;
-      color: #ccc;
-    }
-    @media (prefers-color-scheme: light) {
-      body {
-        background: #f5f5f5;
-        color: #111;
-      }
-      h2, h1, h3, .opis, .nazwa, .cena {
-        color: #222;
-      }
-      .reko {
-        background: #fff;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      }
+      color: inherit;
     }
   </style>
 </head>
 <body>
+<script>
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+  }
+</script>
 """
 
 stopka_html = """
