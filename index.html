@@ -15,6 +15,7 @@
       <div id="menu" class="menu-items">
         <a href="#about">O mnie</a>
         <a href="#projects">Projekty</a>
+        <a href="#rekomendacje">Rekomendacje</a>
         <a href="#contact">Kontakt</a>
         <button id="toggle-theme">🌙</button>
       </div>
@@ -22,48 +23,59 @@
   </div>
 </header>
 
-  <main class="container">
-<section class="about" id="about">
-      <h2>👋 O mnie</h2>
-      <p>Cześć! Jestem Faustyna. Na co dzień pracuję z danymi finansowymi w środowisku regulowanym, gdzie kluczowa jest precyzja, zgodność z dyrektywami oraz bezpieczeństwo informacji. W wolnym czasie rozwijam umiejętności w Pythonie, cyberbezpieczeństwie i analizie polityki monetarnej w Europie.</p>
-    </section>
+<main class="container">
 
-<section class="projects" id="projects">
-      <h2>🛠️ Moje projekty</h2>
+  <section class="about" id="about">
+    <h2>👋 O mnie</h2>
+    <p>Cześć! Jestem Faustyna. Na co dzień pracuję z danymi finansowymi w środowisku regulowanym, gdzie kluczowa jest precyzja, zgodność z dyrektywami oraz bezpieczeństwo informacji. W wolnym czasie rozwijam umiejętności w Pythonie, cyberbezpieczeństwie i analizie polityki monetarnej w Europie.</p>
+  </section>
 
-      <div class="card">
-        <h3>🧮 Kalkulator</h3>
-        <p>Prosty kalkulator czterech działań w Pythonie.</p>
-        <a href="projekty/kalkulator.py" download>Pobierz kod</a>
-      </div>
+  <section class="projects" id="projects">
+    <h2>🛠️ Moje projekty</h2>
 
-      <div class="card">
-        <h3>🔢 Zgadnij liczbę</h3>
-        <p>Gra – zgadnij liczbę wylosowaną przez komputer.</p>
-        <a href="projekty/zgadnij.py" download>Pobierz kod</a>
-      </div>
+    <div class="card">
+      <h3>🧮 Kalkulator</h3>
+      <p>Prosty kalkulator czterech działań w Pythonie.</p>
+      <a href="projekty/kalkulator.py" download>Pobierz kod</a>
+    </div>
 
-        <div class="card">
-          <h3>🎂 Kiedy masz urodziny?</h3>
-          <p>Policz ile dni zostało do Twoich urodzin.</p>
-          <a href="projekty/urodziny.py" download>Pobierz kod</a>
-        </div>
+    <div class="card">
+      <h3>🔢 Zgadnij liczbę</h3>
+      <p>Gra – zgadnij liczbę wylosowaną przez komputer.</p>
+      <a href="projekty/zgadnij.py" download>Pobierz kod</a>
+    </div>
 
-        <div class="card">
-          <h3>📈 Analiza wahań giełdowych</h3>
-          <p>Skrypt liczący średnią dziennych zmian cen i odchylenie standardowe na podstawie danych z CSV.</p>
-          <a href="projekty/analiza_gieldowa.py" download>Pobierz kod</a>
-          <a href="projekty/przykladowe_dane.csv" download>Pobierz przykładowe dane</a>
-        </div>
-      </section>
-  </main>
+    <div class="card">
+      <h3>🎂 Kiedy masz urodziny?</h3>
+      <p>Policz ile dni zostało do Twoich urodzin.</p>
+      <a href="projekty/urodziny.py" download>Pobierz kod</a>
+    </div>
+
+    <div class="card">
+      <h3>📈 Analiza wahań giełdowych</h3>
+      <p>Skrypt liczący średnią dziennych zmian cen i odchylenie standardowe na podstawie danych z CSV.</p>
+      <a href="projekty/analiza_gieldowa.py" download>Pobierz kod</a>
+      <a href="projekty/przykladowe_dane.csv" download>Pobierz przykładowe dane</a>
+    </div>
+  </section>
+
+  <section class="projects" id="rekomendacje">
+    <h2>📊 Rekomendacje inwestycyjne</h2>
+    <p>Aktualizowane codziennie automatycznie przez algorytm MA20 vs MA50.</p>
+    <iframe src="rekomendacje.html" width="100%" height="220" style="border:none;"></iframe>
+    <p style="font-size: 0.9em;">Ostatnia aktualizacja: <script>document.write(new Date().toLocaleDateString());</script></p>
+  </section>
+
+</main>
 
 <footer id="contact">
-    <div class="container">
-      <p>📫 Kontakt: <a href="mailto:fijalkowskaf@gmail.com">fijalkowskaf@gmail.com</a> | <a href="https://github.com/fijalkowska" target="_blank">GitHub</a></p>
-      <p>&copy; 2025 Faustyna</p>
-    </div>
-  </footer>
+  <div class="container">
+    <p>📫 Kontakt: <a href="mailto:fijalkowskaf@gmail.com">fijalkowskaf@gmail.com</a> |
+      <a href="https://github.com/fijalkowska" target="_blank">GitHub</a></p>
+    <p>&copy; 2025 Faustyna</p>
+  </div>
+</footer>
+
 <script>
   const toggleTheme = document.getElementById('toggle-theme');
   const menuToggle = document.getElementById('menu-toggle');
