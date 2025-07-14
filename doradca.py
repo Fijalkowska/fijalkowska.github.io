@@ -6,10 +6,12 @@ def sprawdz_akcje(symbol: str):
     dane = yf.download(symbol, period="60d", interval="1d")
     dane['MA20'] = dane['Close'].rolling(window=20).mean()
     dane['MA50'] = dane['Close'].rolling(window=50).mean()
-    ostatni = dane.tail(1).iloc[0]
 
-    ma20 = float(ostatni['MA20']) if not pd.isna(ostatni['MA20']) else None
-    ma50 = float(ostatni['MA50']) if not pd.isna(ostatni['MA50']) else None
+    ostatni = dane.tail(1)
+
+    # Pobieramy wartości MA jako liczby (float), ale bezpiecznie
+    ma20 = ostatni['MA20'].item() if not pd.isna(ostatni['MA20'].item()) else None
+    ma50 = ostatni['MA50'].item() if not pd.isna(ostatni['MA50'].item()) else None
 
     if ma20 is None or ma50 is None:
         return "⚪ ZBYT MAŁO DANYCH"
