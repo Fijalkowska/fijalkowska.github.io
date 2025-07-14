@@ -12,7 +12,6 @@ akcje = [
     'CRM', 'ADBE', 'CSCO', 'PYPL', 'UBER'
 ]
 
-# Pobierz pełne nazwy spółek (można rozbudować lub użyć API w przyszłości)
 nazwy_spolek = {
     'AAPL': 'Apple Inc.',
     'TSLA': 'Tesla Inc.',
@@ -81,43 +80,60 @@ naglowek_html = """<!DOCTYPE html>
       color: #eee;
     }
     h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #f2f2f2;
     }
     .opis {
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
       color: #ccc;
+      max-width: 1000px;
     }
     .rekomendacje-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      width: 100%;
     }
     .reko {
       padding: 1rem;
-      border-radius: 10px;
-      background: #2a2b2f;
+      border-radius: 12px;
+      background: #2c2d33;
       text-align: center;
       font-weight: 500;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      border-left: 6px solid #888;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
-    .kupuj { border-left: 5px solid #2ecc71; }
-    .sprzedaj { border-left: 5px solid #e74c3c; }
-    .neutral { border-left: 5px solid #7f8c8d; }
+    .kupuj { border-left-color: #2ecc71; }
+    .sprzedaj { border-left-color: #e74c3c; }
+    .neutral { border-left-color: #7f8c8d; }
     .sparkline {
       margin-top: 0.5rem;
       width: 100%;
     }
     .cena {
       font-size: 0.85rem;
-      margin-top: 0.2rem;
+      margin-top: 0.4rem;
       color: #aaa;
     }
     .nazwa {
       font-size: 0.9rem;
       margin-top: 0.2rem;
       color: #ccc;
+    }
+    @media (prefers-color-scheme: light) {
+      body {
+        background: #f5f5f5;
+        color: #111;
+      }
+      h2, .opis, .nazwa, .cena {
+        color: #222;
+      }
+      .reko {
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      }
     }
   </style>
 </head>
@@ -131,9 +147,9 @@ stopka_html = """
 
 html = f"{naglowek_html}<h2>Rekomendacje inwestycyjne – {date.today().strftime('%d.%m.%Y')}</h2>"
 html += """
-<div class='opis'>Analiza opiera się na porównaniu dwóch średnich kroczących:
- <strong>MA20</strong> (średnia z ostatnich 20 dni) i <strong>MA50</strong> (średnia z 50 dni).
- Gdy MA20 przebija MA50 z dołu – sugeruje trend wzrostowy. Odwrotnie – sygnał spadkowy.</div>
+<div class='opis'>Strategia opiera się na porównaniu dwóch średnich kroczących:
+ <strong>MA20</strong> (20-dniowa) i <strong>MA50</strong> (50-dniowa).
+ Gdy MA20 przecina MA50 od dołu – to sygnał kupna. Gdy odwrotnie – sygnał sprzedaży.</div>
 <div class='rekomendacje-grid'>
 """
 
