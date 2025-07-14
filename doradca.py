@@ -35,6 +35,12 @@ nazwy_spolek = {
     'UBER': 'Uber Technologies, Inc.'
 }
 
+ikony = {
+    "kupuj": "📈",
+    "sprzedaj": "📉",
+    "neutral": "➖"
+}
+
 def sprawdz_akcje(symbol: str):
     dane = yf.download(symbol, period="60d", interval="1d")
     dane['MA20'] = dane['Close'].rolling(window=20).mean()
@@ -88,7 +94,10 @@ naglowek_html = """<!DOCTYPE html>
     h2, h1, h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: inherit;
+      color: #111;
+    }
+    body.dark h2, body.dark h1, body.dark h3 {
+      color: #f2f2f2;
     }
     .opis {
       font-size: 1rem;
@@ -110,7 +119,16 @@ naglowek_html = """<!DOCTYPE html>
       font-weight: 500;
       border-left: 6px solid #888;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s, transform 0.3s, opacity 0.3s;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     body.dark .reko {
       background: #2c2d33;
@@ -162,12 +180,13 @@ for symbol in akcje:
     spark = generuj_sparkline(dane)
     pelna_nazwa = nazwy_spolek.get(symbol, symbol)
     cena_text = f"${cena:.2f}" if cena is not None else "brak danych"
+    ikona = ikony[typ]
 
     html += f"""
     <div class='reko {typ}'>
         <strong>{symbol}</strong>
         <div class='nazwa'>{pelna_nazwa}</div>
-        <div>{opis}</div>
+        <div>{ikona} {opis}</div>
         <div class='cena'>Cena: {cena_text}</div>
         <img class='sparkline' src='data:image/png;base64,{spark}' alt='trend'>
     </div>
