@@ -65,11 +65,11 @@ def generuj_sparkline(dane):
     return base64.b64encode(buf.getvalue()).decode('utf-8')
 
 naglowek_html = """<!DOCTYPE html>
-<html lang="pl">
+<html lang=\"pl\">
 <head>
-  <meta charset="UTF-8">
+  <meta charset=\"UTF-8\">
   <title>Rekomendacje</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap\" rel=\"stylesheet\">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -78,8 +78,9 @@ naglowek_html = """<!DOCTYPE html>
       padding: 1rem;
       background: #1b1c1f;
       color: #eee;
+      transition: background 0.3s, color 0.3s;
     }
-    h2 {
+    h2, h1, h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
       color: #f2f2f2;
@@ -104,6 +105,7 @@ naglowek_html = """<!DOCTYPE html>
       font-weight: 500;
       border-left: 6px solid #888;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s, color 0.3s;
     }
     .kupuj { border-left-color: #2ecc71; }
     .sprzedaj { border-left-color: #e74c3c; }
@@ -127,7 +129,7 @@ naglowek_html = """<!DOCTYPE html>
         background: #f5f5f5;
         color: #111;
       }
-      h2, .opis, .nazwa, .cena {
+      h2, h1, h3, .opis, .nazwa, .cena {
         color: #222;
       }
       .reko {
