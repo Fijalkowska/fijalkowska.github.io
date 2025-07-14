@@ -44,7 +44,7 @@ def sprawdz_akcje(symbol: str):
     ostatni = dane.tail(1)
     ma20 = ostatni['MA20'].values[0] if not pd.isna(ostatni['MA20'].values[0]) else None
     ma50 = ostatni['MA50'].values[0] if not pd.isna(ostatni['MA50'].values[0]) else None
-    cena = ostatni['Close'].values[0] if not pd.isna(ostatni['Close'].values[0]) else None
+    cena = float(ostatni['Close'].values[0]) if not pd.isna(ostatni['Close'].values[0]) else None
 
     if ma20 is None or ma50 is None or cena is None:
         return "neutral", "Brak danych", cena
@@ -147,7 +147,7 @@ for symbol in akcje:
         <strong>{symbol}</strong>
         <div class='nazwa'>{pelna_nazwa}</div>
         <div>{opis}</div>
-        <div class='cena'>Cena: ${cena:.2f}</div>
+        <div class='cena'>Cena: {cena_text}</div>
         <img class='sparkline' src='data:image/png;base64,{spark}' alt='trend'>
     </div>
     """
