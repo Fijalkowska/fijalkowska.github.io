@@ -1,4 +1,5 @@
 import yfinance as yf
+import pandas as pd
 from datetime import date
 
 def sprawdz_akcje(symbol: str):
