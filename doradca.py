@@ -142,6 +142,8 @@ for symbol in akcje:
     typ, opis, cena = sprawdz_akcje(symbol)
     spark = generuj_sparkline(dane)
     pelna_nazwa = nazwy_spolek.get(symbol, symbol)
+    cena_text = f"${cena:.2f}" if cena is not None else "brak danych"
+
     html += f"""
     <div class='reko {typ}'>
         <strong>{symbol}</strong>
