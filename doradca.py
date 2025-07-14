@@ -6,14 +6,16 @@ def sprawdz_akcje(symbol: str):
     dane = yf.download(symbol, period="60d", interval="1d")
     dane['MA20'] = dane['Close'].rolling(window=20).mean()
     dane['MA50'] = dane['Close'].rolling(window=50).mean()
-    ostatni = dane.iloc[-1]
 
+    ostatni = dane.tail(1).iloc[0]  # Bezpieczny sposób pobrania ostatniego wiersza
+
+    # Zabezpieczenie przed brakiem danych
     if pd.isna(ostatni['MA20']) or pd.isna(ostatni['MA50']):
         return "⚪ ZBYT MAŁO DANYCH"
 
-    if ostatni['MA20'] > ostatni['MA50']:
+    if float(ostatni['MA20']) > float(ostatni['MA50']):
         return "🟢 KUP (MA20 > MA50)"
-    elif ostatni['MA20'] < ostatni['MA50']:
+    elif float(ostatni['MA20']) < float(ostatni['MA50']):
         return "🔴 SPRZEDAJ (MA20 < MA50)"
     else:
         return "⚪ NIC NIE RÓB (MA20 ≈ MA50)"
