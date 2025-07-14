@@ -42,9 +42,9 @@ def sprawdz_akcje(symbol: str):
     dane['MA50'] = dane['Close'].rolling(window=50).mean()
 
     ostatni = dane.tail(1)
-    ma20 = ostatni['MA20'].item() if not pd.isna(ostatni['MA20'].item()) else None
-    ma50 = ostatni['MA50'].item() if not pd.isna(ostatni['MA50'].item()) else None
-    cena = ostatni['Close'].item() if not pd.isna(ostatni['Close'].item()) else None
+    ma20 = ostatni['MA20'].values[0] if not pd.isna(ostatni['MA20'].values[0]) else None
+    ma50 = ostatni['MA50'].values[0] if not pd.isna(ostatni['MA50'].values[0]) else None
+    cena = ostatni['Close'].values[0] if not pd.isna(ostatni['Close'].values[0]) else None
 
     if ma20 is None or ma50 is None or cena is None:
         return "neutral", "Brak danych", cena
